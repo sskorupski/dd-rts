@@ -1,0 +1,24 @@
+---
+layout: page
+title: "Anime Isekai"
+permalink: /isekai/
+---
+
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width: 33%">Cover</th>
+    <th>Titre</th>
+    <th>Auteur</th>
+  </tr>
+  {% for isekai in site.isekai %}
+
+  <tr>
+    <td><img src="{{ isekai.cover }}" alt="{{ isekai.title }} cover" class="responsive" style="height: auto;"></td>
+    <td><a href="{{ site.baseurl }}{{ isekai.url }}" class="mx-auto">{{ isekai.title |
+      capitalize}}</a></td>
+    <td>{{isekai.author}}</td>
+  </tr>
+
+  {% endfor %}
+</table>
