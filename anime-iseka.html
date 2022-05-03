@@ -11,13 +11,15 @@ permalink: /isekai/
         <div class="col">
             <h3 class="rts">{{ isekai.title | capitalize}}</h3>
         </div>
-        <div class="row">
-            <div class="col-sm-4 col-md-6">
-                <img src="{{ isekai.cover }}" alt="{{ isekai.title }} cover" class="responsive">
-            </div>
-            <div class="col-sm-8 col-md-6">
-                {{isekai.personal_note}}
-            </div>
-        </div>
-        {% endfor %}
     </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-6">
+            <img src="{{ isekai.cover }}" alt="{{ isekai.title }} cover" class="responsive">
+        </div>
+        <div class="col-sm-8 col-md-6">
+            {{isekai.personal_note}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
