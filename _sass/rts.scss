@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+
+
+.rts h3 {font-size:3rem;}
+
+@media(min-width: 1024px){
+  .wrapper{
+    max-width: -webkit-calc(1024px - (30px * 2));
+    max-width: calc(1024px - (30px * 2));
+  }
+}

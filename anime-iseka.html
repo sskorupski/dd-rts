@@ -5,20 +5,19 @@ permalink: /isekai/
 ---
 
 
-<table id="myTable">
-  <tr class="header">
-    <th style="width: 33%">Cover</th>
-    <th>Titre</th>
-    <th>Auteur</th>
-  </tr>
-  {% for isekai in site.isekai %}
-
-  <tr>
-    <td><img src="{{ isekai.cover }}" alt="{{ isekai.title }} cover" class="responsive" style="height: auto;"></td>
-    <td><a href="{{ site.baseurl }}{{ isekai.url }}" class="mx-auto">{{ isekai.title |
-      capitalize}}</a></td>
-    <td>{{isekai.author}}</td>
-  </tr>
-
-  {% endfor %}
-</table>
+<div class="container rts">
+    {% for isekai in site.isekai %}
+    <div class="row">
+        <div class="col">
+            <h3 class="rts">{{ isekai.title | capitalize}}</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-6">
+                <img src="{{ isekai.cover }}" alt="{{ isekai.title }} cover" class="responsive">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                {{isekai.personal_note}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
