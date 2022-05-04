@@ -5,8 +5,6 @@
   height: auto;
 }
 
-
-
 .rts h3 {font-size:3rem;}
 
 @media(min-width: 1024px){
@@ -14,4 +12,12 @@
     max-width: -webkit-calc(1024px - (30px * 2));
     max-width: calc(1024px - (30px * 2));
   }
+}
+
+input[type=checkbox]:not(:checked) ~ .bubble {
+  visibility: hidden;
+}
+
+input[type=checkbox]:checked ~ .bubble {
+  visibility: visible;
 }

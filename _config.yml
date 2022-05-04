@@ -18,13 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: RTS - Le Royaume des Terres Scindées
+title: Lore de RTS - Relate-faits par Récidieu Ch'tite corde
 email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Enchanté, je suis Recidieu Ch'tite garde, barde du savoir.
+description: >- # this means to ignore newlines until next property
+  Enchanté, je suis Récidieu Ch'tite corde, barde du savoir spécialisé en lore de RTS.  
+  Vous connaissez le Royaume des Terres Scindées bien sûr ?
 
 domain: sskorupski.github.io
-url: https://sskorupski.github.io # the base hostname & protocol for your site, e.g. http://example.com
+url: https://sskorupski.github.io
 baseurl: "/dd-rts-jekyll" # the subpath of your site, e.g. /blog
 twitter_username:
 github_username:  sskorupski

@@ -8,27 +8,29 @@ layout: home
 ---
 
 
-<div class="container rts">
+<div class="container rts align-middle">
     <div class="row">
         <div class="col">
-            <img srcset="
-                    assets/group-460w.png 460w,
-                    assets/group-960w.png 960w"
-                 sizes="
-                    (max-width: 600px) 460px,
-                    800px"
-                 src="assets/group-960w.png"
-                 alt="RTS cover art">
+            <img src="https://cdna.artstation.com/p/assets/images/images/015/412/288/original/alexandra-vezhnovets-library.gif?1548239266"
+                 alt="Artwork from Alexandra Vezhnovets"
+                 usemap="#home-stage"
+                 class="rounded mx-auto d-block">
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            Enchanté ! Je suis <b>Récidieu Ch'tite Corde</b>>. Ma première mission en tant que barde du savoir est de
-            vous apporter toutes les informations qui vous seront utiles pour appréhender le monde des Royaumes
-            des Terres Scindées. De par mes pérégrinations j'ai pu retranscrire nombre de relate faits ici à votre
-            disposition.
+        <map name="home-stage">
+            <area target="_self"
+                  onclick="document.getElementById('hello').click();"
+                  alt="hello"
+                  title="hello"
+                  href="#"
+                  coords="341,235,414,139,365,112,406,145,385,191,421,322,391,315,323,479,282,473,308,447,329,333,328,320,291,328,318,378,268,408,275,374,252,296,317,283,312,274,284,257,271,205,293,180,316,230,330,121,345,107"
+                  shape="poly"
+            >
+        </map>
+        <input type="checkbox" id="hello" class="visually-hidden">
+        <div class="col bubble fade-in">
+            <p>Enchanté ! Je suis <b>Récidieu Ch'tite Corde</b>, enfin c'est le nom que je me donne...</p>
         </div>
+
     </div>
-</div>
 </div>
 
