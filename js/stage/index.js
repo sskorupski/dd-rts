@@ -41,7 +41,7 @@ let conditions = {
             "J'ai quelques références à vous conseiller.",
             "Je peux vous montrer ?",
         ],
-        go: 'isekai',
+        go: 'https://docs.google.com/document/d/1GuiKf34OjyZl6V7ORNPeUScA_yLbLeMbRbviBuIRGAU/edit?usp=sharing',
         next: ["oui", "non"]
     },
     "oui": {
@@ -51,11 +51,11 @@ let conditions = {
     "non": {
         trigger: (v) => ["non", "bof"].includes(v),
         action: () => say('non', reset),
-        msg: ['Hmm 🤔... Une autre fois peut-être ?']
+        msg: ['Hmm 🤔... Une autre fois peut-être ?'],
     }
 }
 
-function redirect() {
+function oui() {
     let cond = $('#say').data('history');
     if (conditions[cond].go) {
         window.location.href = conditions[cond].go
@@ -63,6 +63,7 @@ function redirect() {
 }
 
 function reset(){
+    states = ['hello']
     setTimeout( () => understand('hello'), 500)
 }
 
