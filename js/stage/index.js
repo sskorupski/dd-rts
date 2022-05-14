@@ -3,8 +3,8 @@ function history() {
 }
 
 let debug = false;
-let states = ['hello']
-let hello_states = ['recidieu', 'livre', 'isekai', 'monstre', 'carte', 'relate-faits']
+let states = ['hello'];
+let hello_states = [ 'carte', 'isekai', 'monstre', 'recidieu', 'relate-faits', 'sorts'];
 let _say;
 
 
@@ -140,6 +140,7 @@ function say(speechKey, then) {
             } else {
                 _say.prop("disabled", false)
                 _say.val('')
+                _say.focus()
                 if (then) {
                     then()
                 }

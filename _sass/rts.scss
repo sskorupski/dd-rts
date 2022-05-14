@@ -5,7 +5,19 @@
   height: auto;
 }
 
+.site-header h1{
+  font-family: 'Cinzel Decorative', cursive;
+  text-align: center;
+}
 .rts h3 {font-size:3rem;}
+
+#hearing{
+  font-family: 'Square Peg', cursive;
+  font-size: 1.8rem;
+  line-height: 1.7rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
 
 @media(min-width: 1024px){
   .wrapper{
