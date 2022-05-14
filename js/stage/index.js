@@ -4,20 +4,23 @@ function history() {
 
 let debug = false;
 let states = ['hello']
+let hello_states = ['recidieu', 'livre', 'isekai', 'monstre', 'carte', 'relate-faits']
 let _say;
+
 
 let conditions = {
     "hello": {
         trigger: (v) => ["bonjour", "salut", "hello"].includes(v),
         action: () => say('hello'),
         msg: [
-            "Un renseignement ???"
-        ],
-        next: ['recidieu', 'livre', 'isekai', 'monstre'],
+            "Voyons voir, où en suis-je déjà ?",
+            "Ha ! Voici quelques sujets sur lesquels je puis vous renseigner :",
+        ].concat(hello_states.map(e => '- '+ e)),
+        next: hello_states,
     },
-    "livre": {
+    "sorts": {
         trigger: (v) => ["livre", "règle", "manuel", "sorts"].includes(v),
-        action: () => say('livre'),
+        action: () => say('sorts'),
         msg: [
             "J'ai en ma possession un ouvrage qui pourrait correspondre à votre demande.",
             "Il s'agit d'un supplément aux règles de base de D&D5 (Donjon et Dragon 5e édition).",
@@ -57,6 +60,29 @@ let conditions = {
         ],
         next: ['oui', 'non'],
         go: 'https://www.gdfl.be/wp-content/uploads/2018/10/DD5-Monstres.pdf'
+    },
+    "carte":{
+        trigger: (v) => ["carte", "monde"].includes(v),
+        action: () => say("carte"),
+        msg:[
+            "Une carte du royaume des terres Scindées ?",
+            "Humm... Oui, j'ai une carte... ancienne mais suffisamment précise pour situer l'emplacement des principaux royaumes.",
+            "Désirez-vous la voir ?",
+        ],
+        next: ["oui", "non"],
+        go: 'https://drive.google.com/file/d/1kDOXRiRr2-9NGCcC4Wx0ZBsG5T2WM9b8/view?usp=sharing',
+    },
+    "relate-faits":{
+        trigger: (v) => ["relate-faits", "résumés"].includes(v),
+        action: () => say("relate-faits"),
+        msg:[
+            "Haha ! Vous aimez l'histoire ?",
+            "J'ai pu mettre la main sur les notes d'un barde.",
+            "C'est assez sommaire, mais on y retrouve les des faits, des noms de lieux et de personnages.",
+            "Ça vous intéresse ?",
+        ],
+        next: ["oui", "non"],
+        go: 'https://docs.google.com/document/d/1BP-72ZgUDZZj3-BBhTh3h-jV8g-K3FsjY0W_vS3_UhI/edit?usp=sharing'
     },
     "oui": {
         trigger: (v) => ["oui", "ok", "c'est parti"].includes(v),
@@ -150,4 +176,5 @@ $(document).ready(function () {
             .replace(/[\u0300-\u036f]/g, "");
         understand(v);
     })
+    setTimeout(() => understand('hello'), 500)
 });
