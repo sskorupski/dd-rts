@@ -5,8 +5,16 @@ $color-beige: #ece5ce;
 $color-yellow: #f9cdad;
 $color-pink: #fe4365;
 
-.rts .bubble p {
+.rts .bubble input,
+.rts .bubble input:focus-visible
+.rts .bubble input:focus {
+  border: none;
+  outline: none;
+}
+
+.rts .bubble p{
   transform: translatey(0px);
+  border: none;
   animation: float 5s ease-in-out infinite;
   mix-blend-mode: multiply;
   text-align: center;
@@ -23,7 +31,19 @@ $color-pink: #fe4365;
   font-family: "Baloo 2", cursive;
   // border: 1px solid $color-green;
 }
-.rts .bubble p:after {
+
+.rts .bubble.right:hover{
+  cursor: text;
+}
+
+.rts .bubble.right input{
+  float: right;
+  border: 1px;
+  animation: float 5s ease-in-out infinite;
+}
+.after-bubble,
+.rts .bubble p:after,
+.rts .bubble input:after {
   transform: translatey(0px);
   animation: float2 5s ease-in-out infinite;
   content: ".";
@@ -32,7 +52,7 @@ $color-pink: #fe4365;
   -webkit-text-fill-color: $color-beige;
   // border: 1px solid $color-green;
   text-shadow: 22px 22px $color-blue;
-  text-align: left;
+
   font-size: 55px;
   width: 55px;
   height: 11px;
@@ -42,9 +62,20 @@ $color-pink: #fe4365;
   position: absolute;
   display: block;
   bottom: -30px;
-  left: 0;
   box-shadow: 22px 22px $color-blue;
-  z-index: 2;
+  z-index: 10;
+}
+
+.rts .bubble.left p:after {
+  @extend .after-bubble;
+  text-align: left;
+  left: -38px;
+}
+
+.rts .bubble.right p:after {
+  @extend .after-bubble;
+  text-align: right;
+  right: -38px;
 }
 
 @keyframes float {

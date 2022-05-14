@@ -7,6 +7,7 @@
 layout: home
 ---
 
+<script type="text/javascript" src="{{ "/js/stage/index.js" | relative_url }}"></script>
 
 <div class="container rts align-middle">
     <div class="row">
@@ -16,21 +17,13 @@ layout: home
                  usemap="#home-stage"
                  class="rounded mx-auto d-block">
         </div>
-        <map name="home-stage">
-            <area target="_self"
-                  onclick="document.getElementById('hello').click();"
-                  alt="hello"
-                  title="hello"
-                  href="#"
-                  coords="341,235,414,139,365,112,406,145,385,191,421,322,391,315,323,479,282,473,308,447,329,333,328,320,291,328,318,378,268,408,275,374,252,296,317,283,312,274,284,257,271,205,293,180,316,230,330,121,345,107"
-                  shape="poly"
-            >
-        </map>
-        <input type="checkbox" id="hello" class="visually-hidden">
-        <div class="col bubble fade-in">
-            <p>Enchanté ! Je suis <b>Récidieu Ch'tite Corde</b>, enfin c'est le nom que je me donne...</p>
-        </div>
-
+        <map name="home-stage"></map>
     </div>
+    <div class="d-flex flex-row" id="hearing">
+    </div>
+    <div class="d-flex flex-row-reverse"></div>
 </div>
 
+<div class="container rts align-middle">
+
+</div>

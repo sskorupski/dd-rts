@@ -14,10 +14,14 @@
   }
 }
 
-input[type=checkbox]:not(:checked) ~ .bubble {
+input[type=checkbox]:not(:checked) ~ * .bubble{
   visibility: hidden;
 }
 
-input[type=checkbox]:checked ~ .bubble {
+input[type=checkbox]:checked ~ * .bubble {
   visibility: visible;
+}
+
+input[type=checkbox]:checked ~ * map[name="home-stage"] area{
+  display: none;
 }
