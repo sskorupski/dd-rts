@@ -12,7 +12,7 @@ let conditions = {
         msg: [
             "Un renseignement ???"
         ],
-        next: ['recidieu', 'livre', 'isekai'],
+        next: ['recidieu', 'livre', 'isekai', 'monstre'],
     },
     "livre": {
         trigger: (v) => ["livre", "règle", "manuel", "sorts"].includes(v),
@@ -44,6 +44,19 @@ let conditions = {
         go: 'https://docs.google.com/document/d/1GuiKf34OjyZl6V7ORNPeUScA_yLbLeMbRbviBuIRGAU/edit?usp=sharing',
         next: ["oui", "non"]
     },
+    "monstre": {
+        trigger: (v) => ["monstre"].includes(v),
+        action: () => say('monstre'),
+        msg: [
+            "Il y en a beaucoup trop à mon goût.",
+            "Cependant, mieux les connaitre vous permettra d'augmenter vos chances de survies.",
+            "Voyons voir...",
+            "Ha nous y voilà: \"Le manuel des monstres D&D 5\", une véritable encyclopédie !",
+            "Je vous l'apporte ?"
+        ],
+        next: ['oui', 'non'],
+        go: 'https://www.gdfl.be/wp-content/uploads/2018/10/DD5-Monstres.pdf'
+    },
     "oui": {
         trigger: (v) => ["oui", "ok", "c'est parti"].includes(v),
         action: () => oui(),
@@ -51,7 +64,7 @@ let conditions = {
     "non": {
         trigger: (v) => ["non", "bof"].includes(v),
         action: () => say('non', reset),
-        msg: ['Hmm 🤔... Une autre fois peut-être ?'],
+        msg: ['🤔 ... Une autre fois peut-être ?'],
     }
 }
 
