@@ -4,6 +4,7 @@ function history() {
 
 let debug = false;
 let states = ['hello']
+let _say;
 
 let conditions = {
     "hello": {
@@ -12,7 +13,7 @@ let conditions = {
         msg: [
             "Un renseignement ???"
         ],
-        next: ['recidieu', 'livre', 'isekai'],
+        next: ['recidieu', 'livre', 'isekai', 'monstre'],
     },
     "livre": {
         trigger: (v) => ["livre", "règle", "manuel", "sorts"].includes(v),
@@ -44,6 +45,19 @@ let conditions = {
         go: 'https://docs.google.com/document/d/1GuiKf34OjyZl6V7ORNPeUScA_yLbLeMbRbviBuIRGAU/edit?usp=sharing',
         next: ["oui", "non"]
     },
+    "monstre": {
+        trigger: (v) => ["monstre"].includes(v),
+        action: () => say('monstre'),
+        msg: [
+            "Il y en a beaucoup trop à mon goût.",
+            "Cependant, mieux les connaitre vous permettra d'augmenter vos chances de survies.",
+            "Voyons voir...",
+            "Ha nous y voilà: \"Le manuel des monstres D&D 5\", une véritable encyclopédie !",
+            "Je vous l'apporte ?"
+        ],
+        next: ['oui', 'non'],
+        go: 'https://www.gdfl.be/wp-content/uploads/2018/10/DD5-Monstres.pdf'
+    },
     "oui": {
         trigger: (v) => ["oui", "ok", "c'est parti"].includes(v),
         action: () => oui(),
@@ -51,12 +65,12 @@ let conditions = {
     "non": {
         trigger: (v) => ["non", "bof"].includes(v),
         action: () => say('non', reset),
-        msg: ['Hmm 🤔... Une autre fois peut-être ?'],
+        msg: ['🤔 ... Une autre fois peut-être ?'],
     }
 }
 
 function oui() {
-    let cond = $('#say').data('history');
+    let cond = _say.data('history');
     if (conditions[cond].go) {
         window.location.href = conditions[cond].go
     }
@@ -68,8 +82,8 @@ function reset(){
 }
 
 function say(speechKey, then) {
-    $('#say').prop("disabled", true)
-    $('#say').data('history', speechKey)
+    _say.prop("disabled", true)
+    _say.data('history', speechKey)
     let aText = conditions[speechKey].msg
     let iSpeed = 25; // time delay of print out
     let iIndex = 0; // start printing array at this posision
@@ -91,15 +105,15 @@ function say(speechKey, then) {
             sContents += aText[iRow++] + '<br />';
         }
         destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "";
-        if (iTextPos++ == iArrLength) {
+        if (iTextPos++ === iArrLength) {
             iTextPos = 0;
             iIndex++;
-            if (iIndex != aText.length) {
+            if (iIndex !== aText.length) {
                 iArrLength = aText[iIndex].length;
                 timerId = setTimeout(type, 500);
             } else {
-                $('#say').prop("disabled", false)
-                $('#say').val('')
+                _say.prop("disabled", false)
+                _say.val('')
                 if (then) {
                     then()
                 }
@@ -126,9 +140,10 @@ function understand(v) {
 }
 
 $(document).ready(function () {
-
     console.log("ready!");
-    $('#say').keyup(_ => {
+    _say = $('#say')
+    _say.focus();
+    _say.keyup(_ => {
         const v = $('#say').val()
             .toLowerCase()
             .normalize("NFD")

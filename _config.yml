@@ -18,7 +18,7 @@
 # You can create any custom letiable you would like, and they will be accessible
 # in the templates via {{ site.myletiable }}.
 
-title: Lore de RTS - Relate-faits par Récidieu Ch'tite corde
+title: Meta RTS - Le Royaume des Terres Scindées
 email:
 description: >- # this means to ignore newlines until next property
   Enchanté, je suis Récidieu Ch'tite corde, barde du savoir spécialisé en lore de RTS.  
