@@ -15,17 +15,18 @@
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# You can create any custom letiable you would like, and they will be accessible
+# in the templates via {{ site.myletiable }}.
 
-title: RTS - Le Royaume des Terres Scindées
+title: Meta RTS - Le Royaume des Terres Scindées
 email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Enchanté, je suis Recidieu Ch'tite garde, barde du savoir.
+description: >- # this means to ignore newlines until next property
+  Enchanté, je suis Récidieu Ch'tite corde, barde du savoir spécialisé en lore de RTS.  
+  Vous connaissez le Royaume des Terres Scindées bien sûr ?
 
 domain: sskorupski.github.io
-url: https://sskorupski.github.io # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/dd-rts/" # the subpath of your site, e.g. /blog
+url: https://sskorupski.github.io
+baseurl: "/dd-rts" # the subpath of your site, e.g. /blog
 twitter_username:
 github_username:  sskorupski
 
@@ -33,6 +34,11 @@ github_username:  sskorupski
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
+
+collections:
+  isekai:
+    output: true
+    permalink: /:collection/:categories/:path
 
 # Exclude from processing.
 # The following items will not be processed, by default.

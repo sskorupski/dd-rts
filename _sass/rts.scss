@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.rts h3 {font-size:3rem;}
+
+@media(min-width: 1024px){
+  .wrapper{
+    max-width: -webkit-calc(1024px - (30px * 2));
+    max-width: calc(1024px - (30px * 2));
+  }
+}
+
+input[type=checkbox]:not(:checked) ~ * .bubble{
+  visibility: hidden;
+}
+
+input[type=checkbox]:checked ~ * .bubble {
+  visibility: visible;
+}
+
+input[type=checkbox]:checked ~ * map[name="home-stage"] area{
+  display: none;
+}

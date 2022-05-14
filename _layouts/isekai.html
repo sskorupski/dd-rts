@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <script src="https://kit.fontawesome.com/aeb3e6b307.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<main>
+
+  <h1> {{ page.titre }}</h1>
+
+
+  <div class="caracteristique">
+    <p>Type : {{ page.type | capitalize}}</p>
+    {% if page.type != 'cosmétique' %}
+    <p>Cuisine : {{ page.cuisine }}</p>
+    {% endif %}
+  </div>
+
+  <h2>Ingrédients : </h2>
+  <ul class="liste">
+    {% for ingredient in page.ingredients %}
+    <li>
+      <p>{{ ingredient[0] }} : {{ ingredient[1] }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% if page.marinade %}
+
+  <h2>Marinade : </h2>
+  <ul class="liste">
+
+    {% for ingredientMarinade in page.marinade %}
+    <li>
+      <p>{{ ingredientMarinade[0] }} : {{ ingredientMarinade[1] }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if page.sauce %}
+
+  <h2>Sauce : </h2>
+  <ul class=" liste">
+
+    {% for ingredientSauce in page.sauce %}
+    <li>
+      <p>{{ ingredientSauce[0] }} : {{ ingredientSauce[1] }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% endif %}
+
+  <div>
+    <h2>Étapes de la recette :</h2>
+    <ul class="etape">
+
+      {% for instruction in page.instructions %}
+      <li>
+        <p>{{ instruction }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- <p class="origin">Recette ajouté le  {{ page.date  | date_to_string   }} par {{ page.categories }}</p> -->
+</main>
+
+<script src="{{"/assets/js/app.js"  | relative_url }}"></script>
+</body>
+</html>
